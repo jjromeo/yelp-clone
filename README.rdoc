@@ -1,0 +1,23 @@
+== README
+
+
+Ruby version: 2.0.0p247
+
+How to run the test suite
+Rspec
+
+Dependencies
+  capybara
+  coffee-rails (~> 4.0.0)
+  jbuilder (~> 2.0)
+  jquery-rails
+  pg
+  rails (= 4.1.6)
+  rspec-rails
+  sass-rails (~> 4.0.3)
+  sdoc (~> 0.4.0)
+  spring
+  turbolinks
+  uglifier (>= 1.3.0)
+
+This is a clone of the review site yelp  which I am working on primarily to learn rails.
