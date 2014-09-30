@@ -1,9 +1,20 @@
+<%= notice %>
 <%if @restaurants.any?%>
-	<%=@restaurants.each do |restaurant| %>
+	<%@restaurants.each do |restaurant| %>
 		<h1><%=restaurant.name%></h1>
+		<%= link_to "Show #{restaurant.name}", restaurant_path(restaurant) %>
+		<%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant) %>
+		<h2>Description</h2>
+		<p><%= restaurant.description %></p>
+		<%= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant) %>
+		<%= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete %>
+		<ul><%restaurant.reviews.each do |review| %>
+			<li><%="Rating: #{review.rating}. #{review.thoughts}"%></li>
+			<%end%>
+		</ul>
 	<%end%>
 <%else%>
 	<h1>This is where your restaurants will show</h1>
 <%end%>
 
-<a href="#">Add a restaurant</a>
+<%= link_to 'Add a restaurant', new_restaurant_path %>
