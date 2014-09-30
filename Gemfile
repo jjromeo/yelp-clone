@@ -42,3 +42,4 @@ gem 'rspec-rails', group: :test
 gem 'capybara', group: :test
 
 gem 'haml'
+gem 'rspec-collection_matchers', group: :test

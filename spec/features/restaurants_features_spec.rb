@@ -24,16 +24,28 @@ describe 'restaurants' do
 	end
 
 	context 'Adding a restaurant' do 
-		it 'should have a place to input a new restaurant' do
-			visit '/restaurants'
-			click_link 'Add a restaurant'
-			expect(page).to have_content 'Add a restaurant here'
-			fill_in 'Name', with: 'Nandos'
-			fill_in 'Description', with: 'A lovely chain of chicken'
-			click_button 'Create Restaurant'
-			expect(page).to have_content 'Nandos'
-			# expect(page).to have_content 'A lovely chain of chicken'
-			expect(current_path).to eq '/restaurants'
+		context 'a valid restaurant' do
+			it 'lets you add a restaurant' do
+				visit '/restaurants'
+				click_link 'Add a restaurant'
+				expect(page).to have_content 'Add a restaurant here'
+				fill_in 'Name', with: 'Nandos'
+				fill_in 'Description', with: 'A lovely chain of chicken'
+				click_button 'Create Restaurant'
+				expect(page).to have_content 'Nandos'
+				# expect(page).to have_content 'A lovely chain of chicken'
+				expect(current_path).to eq '/restaurants'
+			end
+		end
+
+		context 'an invalid restaurant' do 
+			it 'does not let you add an invalid one' do 
+				visit '/restaurants'
+				click_link 'Add a restaurant'
+				fill_in 'Name', with: 'Na'
+				click_button 'Create Restaurant'
+				expect(page).to have_content 'error'
+			end
 		end
 	end
 
