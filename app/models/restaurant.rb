@@ -4,8 +4,8 @@ class Restaurant < ActiveRecord::Base
 	validates :name, length: {minimum: 3}, uniqueness: true
 
 	def average_rating
-		if reviews.any?
-			(reviews.reduce(0) {|memo, review|memo + review.rating} / reviews.count).to_s
+		if self.reviews.any?
+			(reviews.reduce(0) {|memo, review|memo + review.rating} / reviews.count)
 		else
 			'N/A'
 		end

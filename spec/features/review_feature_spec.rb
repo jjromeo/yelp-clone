@@ -18,15 +18,18 @@ describe 'reviewing' do
 		leave_review("DEcent", "4")
 		expect(current_path).to eq '/restaurants'
 		expect(page).to have_content "DEcent"
-		expect(page).to have_content 4
+		expect(page).to have_content 'Rating: ★★★★☆'
 	end
 
 
 
 	it "displays an average rating" do
-		leave_review("DEcent", "4")	
-		leave_review("Dece", "4")	
-		expect(page).to have_content "Average rating: 4"
+		leave_review("DEcent", "3")	
+		leave_review("Dece", "5")	
+		expect(page).to have_content "Average rating: ★★★★☆"
 	end
+
+
+
 
 end
