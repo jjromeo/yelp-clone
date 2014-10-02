@@ -9,7 +9,9 @@
 		= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete
 		%ul
 			- restaurant.reviews.each do |review|
-				%li= "Rating: #{star_rating(review.rating)}. #{review.thoughts}"
+				%li= "Rating: #{star_rating(review.rating)}. #{review.thoughts} created #{time_ago_in_words(review.created_at)} ago"
+				= link_to "endorse this review", review_endorsements_path(review),method: :post
+				%li= "#{pluralize(review.endorsements.count, 'endorsement')}"
 
 		%h2= "Average rating: #{star_rating(restaurant.average_rating)}"
 

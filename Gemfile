@@ -40,6 +40,8 @@ gem 'spring',        group: :development
 
 gem 'rspec-rails', group: :test
 gem 'capybara', group: :test
+gem 'timecop', group: :test
+gem 'database_cleaner'
 
 gem 'haml'
 gem 'rspec-collection_matchers', group: :test

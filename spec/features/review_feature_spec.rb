@@ -29,7 +29,23 @@ describe 'reviewing' do
 		expect(page).to have_content "Average rating: ★★★★☆"
 	end
 
+	def thirty_minutes_ago
+		Time.now - (30 * 60)
+	end
 
+
+	context "When reviews are left" do 
+		before do 
+			Review.create(thoughts: "great", rating: "3", restaurant_id: Restaurant.first.id,  created_at: thirty_minutes_ago )
+		end
+
+		it 'tells you how long ago a review was' do
+			visit '/restaurants'
+			expect(page).to have_content '30 minutes ago'
+		end
+
+
+	end
 
 
 end
