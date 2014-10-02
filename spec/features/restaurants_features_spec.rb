@@ -6,6 +6,7 @@ describe 'restaurants' do
 			visit '/restaurants'
 			expect(page).to have_content 'This is where your restaurants will show'
 			expect(page).to have_link 'Add a restaurant'
+			puts (page).html
 		end
 	end
 
@@ -18,7 +19,6 @@ describe 'restaurants' do
 		it 'should display the restaurants' do 
 			visit '/restaurants'
 			expect(page).to have_content 'Nandos'
-			expect(page).to have_content 'A lovely chain of chicken'
 			expect(page).not_to have_content 'This is where your restaurants will show'
 		end
 	end

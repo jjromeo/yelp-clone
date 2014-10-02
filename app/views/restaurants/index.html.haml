@@ -2,15 +2,15 @@
 -if @restaurants.any?
 	- @restaurants.each do |restaurant| 
 		%h1= restaurant.name
-		= link_to "Show #{restaurant.name}", restaurant_path(restaurant)
+		= link_to "Show #{restaurant.name}", restaurant_path(restaurant), id: restaurant.name
 		= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant)
 		%h2 Description
-		%p= restaurant.description
 		= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant)
 		= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete
 		%ul
 			- restaurant.reviews.each do |review|
 				%li= "Rating: #{review.rating}. #{review.thoughts}"
+		%h2= "Average rating: #{restaurant.average_rating}"
 
 -else
 	%h1 This is where your restaurants will show
