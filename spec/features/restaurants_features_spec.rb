@@ -6,7 +6,6 @@ describe 'restaurants' do
 			visit '/restaurants'
 			expect(page).to have_content 'This is where your restaurants will show'
 			expect(page).to have_link 'Add a restaurant'
-			puts (page).html
 		end
 	end
 
@@ -15,7 +14,7 @@ describe 'restaurants' do
 			Restaurant.create(	name: 'Nandos',
 								description: 'A lovely chain of chicken')
 		}
-
+		
 		it 'should display the restaurants' do 
 			visit '/restaurants'
 			expect(page).to have_content 'Nandos'
