@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-xdescribe 'endorsing reviews' do
+describe 'endorsing reviews' do
 	
 	context "while browsing a page with reviews" do 
 
